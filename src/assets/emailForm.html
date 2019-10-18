@@ -1,0 +1,88 @@
+<html>
+
+<body>
+    <div style='overflow-x: auto'>
+        <h1 align='center' style='color: black'>BRIEFING FORM</h1>
+        <table align='center' border='1' cellpadding='5' cellspacing='0' width='100%'
+            style='font-family: Helvetica; color: #000000; border-collapse: collapse; text-align: center; border-color: black; vertical-align:middle;'>
+            <tr>
+                <th colspan='4' bgcolor='#000000' style='color: white'>REQUEST OVERVIEW</th>
+            </tr>
+            <tr>
+                <td rowspan='3' width='25%'>CLIENT INFORMATION</td>
+                <td width='20%'>REQUESTED BY</td>
+                <td colspan='2' width='55%'>{{ requester }}</td>
+            </tr>
+            <tr>
+                <td>E-MAIL</td>
+                <td colspan='2'>{{ email }}</td>
+            </tr>
+            <tr>
+                <td>ADVERTISER</td>
+                <td colspan='2'>{{ advertiser }}</td>
+            </tr>
+
+            <tr>
+                <td rowspan='5' bgcolor='Black' style='color: white;'>CAMPAIGN AND BILLING INFORMATION</td>
+                <td rowspan='2'>CAMPAIGN</td>
+                <td width='15%'>NAME</td>
+                <td width='40%'>{{ campaignName }}</td>
+            </tr>
+            <tr>
+                <td>OBJECTIVE</td>
+                <td>{{ objective }}</td>
+            </tr>
+            <tr>
+                <td rowspan='3'>BUDGET AND PERIOD</td>
+                <td>{{ currency }}</td>
+                <td>{{ budget }}</td>
+            </tr>
+            <tr>
+                <td>START DATE</td>
+                <td>{{ startDate }}</td>
+            </tr>
+            <tr>
+                <td>END DATE</td>
+                <td>{{ endDate }}</td>
+            </tr>
+
+            <tr>
+                <td rowspan='4'>MARKET INFORMATION</td>
+                <td>TARGET MARKET</td>
+                <td colspan='2' width='55%'>{{ target }}</td>
+
+            </tr>
+            <tr>
+                <td id='second'>COMPETITORS</td>
+                <td colspan='2'>{{ competitors }}</td>
+            </tr>
+            <tr>
+                <td>MATERIALS</td>
+                <td colspan='2'>{{ material }}</td>
+            </tr>
+
+            <tr>
+                <td>ADDITIONAL INFO</td>
+                <td colspan='2'>{{ additional }}</td>
+            </tr>
+            <tr>
+                <td bgcolor='Black' style='color: white'>DIGITAL ASSETS</td>
+                <td>';
+                    if(count($assets) > 1) {
+                    foreach($assets as $value) {
+                    $htmlContent .= $value.'<br />';
+                    }
+                    }
+                    else if(count($assets < 1)) { $htmlContent .='' ; } else { $htmlContent .=$assets; } $htmlContent .='</td>
+												<td colspan='2'>' ; if(count($assets_url)> 1) {
+                        foreach($assets_url as $value) {
+                        $htmlContent .= $value.'<br />';
+                        }
+                        }
+                        else if(count($assets_url < 1)) { $htmlContent .='' ; } else { $htmlContent .=$assets_url; }
+                            $htmlContent .='</td>
+                </tr>
+            </table>
+        </div>  
+    </body>
+</html>
